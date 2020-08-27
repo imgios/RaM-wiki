@@ -13,6 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 - pip
 - venv
 - Flask
+- Neo4j
 
 ### Installing
 
@@ -30,7 +31,12 @@ source venv/bin/activate
 ```
 pip3 install -r requirements.txt
 ```
-4. Run the application:
+4. Create a new Neo4j database with `neo4j` as username and `ramwiki` as password
+5. Run the script `createdb.py` in order to populate the database:
+```
+python3 ramwiki/createdb.py
+```
+6. Run the application:
 ```
 python3 run.py
 ```
