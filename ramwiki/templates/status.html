@@ -2,55 +2,67 @@
 
 {% block content %}
 	<section class="section">
-		<div class="tile">
-			<div class="tile is-parent">
-				<article class="tile is-child notification is-link">
-					<p class="title">
-						Total Characters
-					</p>
-					<div class="content">
-						{{ number_of_characters }}
-					</div>
-				</article>
-			</div>
-			<div class="tile is-parent">
-				<article class="tile is-child notification is-link">
-					<p class="title">
-						Total Episodes
-					</p>
-					<div class="content">
-						{{ number_of_episodes }}
-					</div>
-				</article>
-			</div>
-			<div class="tile is-parent">
-				<article class="tile is-child notification is-link">
-					<p class="title">
-						Total Relationships
-					</p>
-					<div class="content">
-						{{ number_of_relationships }}
-					</div>
-				</article>
-			</div>
-			<div class="tile is-parent">
-				<article class="tile is-child notification is-link">
-					<p class="title">
-						Total Nodes
-					</p>
-					<div class="content">
-						{{ number_of_nodes }}
-					</div>
-				</article>
-			</div>
-		</div>
 		<div class="container">
 			<h1 class="title">
 				🔄 App Status
 			</h1>
-			<p class="subtitle">
+			<div class="notification">
 				The application is running!
-			</p>
+			</div>
+			<!-- TILES -->
+			<div class="tile">
+				<div class="tile is-parent">
+					<article class="tile is-child notification is-link">
+						<p class="title">
+							#Characters
+						</p>
+						<div class="content">
+							{{ number_of_characters }}
+						</div>
+					</article>
+				</div>
+				<div class="tile is-parent">
+					<article class="tile is-child notification is-link">
+						<p class="title">
+							#Episodes
+						</p>
+						<div class="content">
+							{{ number_of_episodes }}
+						</div>
+					</article>
+				</div>
+				<div class="tile is-parent">
+					<article class="tile is-child notification is-link">
+						<p class="title">
+							#Episodes
+						</p>
+						<div class="content">
+							{{ number_of_locations }}
+						</div>
+					</article>
+				</div>
+				<div class="tile is-parent">
+					<article class="tile is-child notification is-link">
+						<p class="title">
+							#Relationships
+						</p>
+						<div class="content">
+							{{ number_of_relationships }}
+						</div>
+					</article>
+				</div>
+				<div class="tile is-parent">
+					<article class="tile is-child notification is-link">
+						<p class="title">
+							#Nodes
+						</p>
+						<div class="content">
+							{{ number_of_nodes }}
+						</div>
+					</article>
+				</div>
+			</div>
+			<!-- END TILES -->
 		</div>
 	</section>
 {% endblock %}
