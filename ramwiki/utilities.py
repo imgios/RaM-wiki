@@ -24,3 +24,5 @@ def getRelationshipsCount(dbGraph):
         relsCount = len(dbGraph.relationships)
     except NameError:
         logger.warning("dbGraph not initialized: cannot retrieve nodes count.")
+    else:
+        return relsCount
