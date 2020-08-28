@@ -22,7 +22,7 @@ charactersJsonUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/da
 with urllib.request.urlopen(charactersJsonUrl) as url:
     charactersJson = json.loads(url.read().decode())
 
-charactersScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/create-characters.cyp'
+charactersScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/creation/create-characters.cyp'
 with urllib.request.urlopen(charactersScriptUrl) as url:
     charactersInsert = url.read().decode()
 dbIstance.run(charactersInsert, data=charactersJson)
@@ -32,7 +32,7 @@ episodesJsonUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/data
 with urllib.request.urlopen(episodesJsonUrl) as url:
     episodesJson = json.loads(url.read().decode())
 
-episodesScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/create-episodes.cyp'
+episodesScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/creation/create-episodes.cyp'
 with urllib.request.urlopen(episodesScriptUrl) as url:
     episodesInsert = url.read().decode()
 dbIstance.run(episodesInsert, data=episodesJson)
@@ -42,19 +42,19 @@ locationsJsonUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/dat
 with urllib.request.urlopen(locationsJsonUrl) as url:
     locationsJson = json.loads(url.read().decode())
 
-locationsScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/create-locations.cyp'
+locationsScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/creation/create-locations.cyp'
 with urllib.request.urlopen(locationsScriptUrl) as url:
     locationsInsert = url.read().decode()
 dbIstance.run(locationsInsert, data=locationsJson)
 
 # Relationship APPEARS_IN between Characters and Episodes
-appearsInScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/relationship-appearsin.cyp'
+appearsInScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/creation/relationship-appearsin.cyp'
 with urllib.request.urlopen(appearsInScriptUrl) as url:
     appearsInScript = url.read().decode()
 dbIstance.run(appearsInScript)
 
 # Relationship LIVES_ON between Characters and Locations
-livesOnScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/relationship-liveson.cyp'
+livesOnScriptUrl = 'https://raw.githubusercontent.com/imgios/RaM-wiki/master/cyphers/creation/relationship-liveson.cyp'
 with urllib.request.urlopen(livesOnScriptUrl) as url:
     livesOnScript = url.read().decode()
 dbIstance.run(livesOnScript)
