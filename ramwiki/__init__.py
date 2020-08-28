@@ -1,5 +1,5 @@
 import os
-from ramwiki.utilities import getConnection, getNodesCount, getRelationshipsCount
+from ramwiki.utilities import getConnection, getNodesCount, getRelationshipsCount, getEntityCount
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -13,10 +13,15 @@ def status():
     dbGraph = getConnection()
     nodesCount = getNodesCount(dbGraph)
     relsCount = getRelationshipsCount(dbGraph)
+    entityCount = {
+        "characters": getEntityCount(dbGraph, "c"),
+        "episodes": getEntityCount(dbGraph, "e"),
+        "locations": getEntityCount(dbGraph, "l"),
+    }
 
     return render_template('status.html',
-        number_of_characters='TO-DO',
-        number_of_episodes='TO-DO',
-        number_of_locations='TO-DO',
+        number_of_characters=entityCount["characters"],
+        number_of_episodes=entityCount["episodes"],
+        number_of_locations=entityCount["locations"],
         number_of_relationships=relsCount,
         number_of_nodes=nodesCount)
