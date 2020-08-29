@@ -3,24 +3,29 @@
 {% block content %}
 	<section class="section">
 		<div class="container">
-			<div class="box">
-				<form action="/characters/search" method="get">
-					<div class="field has-addons">
-						<div class="control has-icons-left">
-							<input class="input" type="text" name="characterName" placeholder="Character name">
-							<span class="icon is-small is-left">
-								<i class="far fa-id-badge"></i>
-							</span>
+			<div class="box level">
+				<div class="level-left">
+					<span class="is-size-3">Characters</span>
+				</div>
+				<div class="level-right">
+					<form action="/characters/search" method="get">
+						<div class="field has-addons">
+							<div class="control has-icons-left">
+								<input class="input" type="text" name="characterName" placeholder="Character name">
+								<span class="icon is-small is-left">
+									<i class="far fa-id-badge"></i>
+								</span>
+							</div>
+							<div class="control">
+								<input class="button is-primary" type="submit" value="Search">
+							</div>
 						</div>
-						<div class="control">
-							<input class="button is-primary" type="submit" value="Search">
-						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
 		<div class="container">
-			<p>
+			<p class="py-5">
 				Rick and Morty Wiki actually has stored {{ number_of_characters }} characters! Type the name in the search bar or select one from below:
 			</p>
 			<!-- Random Character 1 -->
