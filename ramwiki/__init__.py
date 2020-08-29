@@ -27,3 +27,7 @@ def status():
         number_of_locations=entityCount["locations"],
         number_of_relationships=relsCount,
         number_of_nodes=nodesCount)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error.html'), 404
