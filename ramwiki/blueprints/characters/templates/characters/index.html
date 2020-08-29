@@ -1,123 +1,121 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<section class="section">
-		<div class="container">
-			<div class="box level">
-				<div class="level-left">
-					<span class="title">Characters</span>
-				</div>
-				<div class="level-right">
-					<form action="/characters/search" method="get">
-						<div class="field has-addons">
-							<div class="control has-icons-left">
-								<input class="input" type="text" name="characterName" placeholder="Character name">
-								<span class="icon is-small is-left">
-									<i class="far fa-id-badge"></i>
-								</span>
-							</div>
-							<div class="control">
-								<input class="button is-primary" type="submit" value="Search">
-							</div>
+	<div class="container">
+		<div class="notification level">
+			<div class="level-left">
+				<span class="title">Characters</span>
+			</div>
+			<div class="level-right">
+				<form action="/characters/search" method="get">
+					<div class="field has-addons">
+						<div class="control has-icons-left">
+							<input class="input" type="text" name="characterName" placeholder="Character name">
+							<span class="icon is-small is-left">
+								<i class="far fa-id-badge"></i>
+							</span>
 						</div>
-					</form>
-				</div>
+						<div class="control">
+							<input class="button is-primary" type="submit" value="Search">
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
-		<div class="container">
-			<p class="py-5">
-				Rick and Morty Wiki actually has stored {{ number_of_characters }} characters! Type the name in the search bar or select one from below:
-			</p>
-			<!-- Random Character 1 -->
-			<article class="media">
-				<figure class="media-left">
-					<p class="image is-64x64">
-						<img src="https://bulma.io/images/placeholders/128x128.png">
+	</div>
+	<div class="container">
+		<p class="py-5">
+			Rick and Morty Wiki actually has stored {{ number_of_characters }} characters! Type the name in the search bar or select one from below:
+		</p>
+		<!-- Random Character 1 -->
+		<article class="media">
+			<figure class="media-left">
+				<p class="image is-64x64">
+					<img src="https://bulma.io/images/placeholders/128x128.png">
+				</p>
+			</figure>
+			<div class="media-content">
+				<div class="content">
+					<p>
+						<strong>{{ characters[0]["name"] }}</strong> <small>{{ characters[0]["status"] }}</small> <small>{{ characters[0]["species"] }}</small>
+						<br>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
 					</p>
-				</figure>
-				<div class="media-content">
-					<div class="content">
-						<p>
-							<strong>{{ characters[0]["name"] }}</strong> <small>{{ characters[0]["status"] }}</small> <small>{{ characters[0]["species"] }}</small>
-							<br>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-						</p>
-					</div>
-					<nav class="level is-mobile">
-						<div class="level-left">
-							<a class="level-item">
-								<span class="icon is-small"><i class="fas fa-reply"></i></span>
-							</a>
-							<a class="level-item">
-								<span class="icon is-small"><i class="fas fa-retweet"></i></span>
-							</a>
-							<a class="level-item">
-								<span class="icon is-small"><i class="fas fa-heart"></i></span>
-							</a>
-						</div>
-					</nav>
 				</div>
-			</article>
-			<!-- Random Character 2 -->
-			<article class="media">
-				<figure class="media-left">
-					<p class="image is-64x64">
-						<img src="https://bulma.io/images/placeholders/128x128.png">
+				<nav class="level is-mobile">
+					<div class="level-left">
+						<a class="level-item">
+							<span class="icon is-small"><i class="fas fa-reply"></i></span>
+						</a>
+						<a class="level-item">
+							<span class="icon is-small"><i class="fas fa-retweet"></i></span>
+						</a>
+						<a class="level-item">
+							<span class="icon is-small"><i class="fas fa-heart"></i></span>
+						</a>
+					</div>
+				</nav>
+			</div>
+		</article>
+		<!-- Random Character 2 -->
+		<article class="media">
+			<figure class="media-left">
+				<p class="image is-64x64">
+					<img src="https://bulma.io/images/placeholders/128x128.png">
+				</p>
+			</figure>
+			<div class="media-content">
+				<div class="content">
+					<p>
+						<strong>{{ characters[1]["name"] }}</strong> <small>{{ characters[1]["status"] }}</small> <small>{{ characters[1]["species"] }}</small>
+						<br>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
 					</p>
-				</figure>
-				<div class="media-content">
-					<div class="content">
-						<p>
-							<strong>{{ characters[1]["name"] }}</strong> <small>{{ characters[1]["status"] }}</small> <small>{{ characters[1]["species"] }}</small>
-							<br>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-						</p>
-					</div>
-					<nav class="level is-mobile">
-						<div class="level-left">
-							<a class="level-item">
-								<span class="icon is-small"><i class="fas fa-reply"></i></span>
-							</a>
-							<a class="level-item">
-								<span class="icon is-small"><i class="fas fa-retweet"></i></span>
-							</a>
-							<a class="level-item">
-								<span class="icon is-small"><i class="fas fa-heart"></i></span>
-							</a>
-						</div>
-					</nav>
 				</div>
-			</article>
-			<!-- Random Character 3 -->
-			<article class="media">
-				<figure class="media-left">
-					<p class="image is-64x64">
-						<img src="https://bulma.io/images/placeholders/128x128.png">
+				<nav class="level is-mobile">
+					<div class="level-left">
+						<a class="level-item">
+							<span class="icon is-small"><i class="fas fa-reply"></i></span>
+						</a>
+						<a class="level-item">
+							<span class="icon is-small"><i class="fas fa-retweet"></i></span>
+						</a>
+						<a class="level-item">
+							<span class="icon is-small"><i class="fas fa-heart"></i></span>
+						</a>
+					</div>
+				</nav>
+			</div>
+		</article>
+		<!-- Random Character 3 -->
+		<article class="media">
+			<figure class="media-left">
+				<p class="image is-64x64">
+					<img src="https://bulma.io/images/placeholders/128x128.png">
+				</p>
+			</figure>
+			<div class="media-content">
+				<div class="content">
+					<p>
+						<strong>{{ characters[2]["name"] }}</strong> <small>{{ characters[2]["status"] }}</small> <small>{{ characters[2]["species"] }}</small>
+						<br>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
 					</p>
-				</figure>
-				<div class="media-content">
-					<div class="content">
-						<p>
-							<strong>{{ characters[2]["name"] }}</strong> <small>{{ characters[2]["status"] }}</small> <small>{{ characters[2]["species"] }}</small>
-							<br>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-						</p>
-					</div>
-					<nav class="level is-mobile">
-						<div class="level-left">
-							<a class="level-item">
-								<span class="icon is-small"><i class="fas fa-reply"></i></span>
-							</a>
-							<a class="level-item">
-								<span class="icon is-small"><i class="fas fa-retweet"></i></span>
-							</a>
-							<a class="level-item">
-								<span class="icon is-small"><i class="fas fa-heart"></i></span>
-							</a>
-						</div>
-					</nav>
 				</div>
-			</article>
-		</div>
-	</section>
+				<nav class="level is-mobile">
+					<div class="level-left">
+						<a class="level-item">
+							<span class="icon is-small"><i class="fas fa-reply"></i></span>
+						</a>
+						<a class="level-item">
+							<span class="icon is-small"><i class="fas fa-retweet"></i></span>
+						</a>
+						<a class="level-item">
+							<span class="icon is-small"><i class="fas fa-heart"></i></span>
+						</a>
+					</div>
+				</nav>
+			</div>
+		</article>
+	</div>
 {% endblock %}
