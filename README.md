@@ -19,26 +19,26 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. Clone the repository
 ```bash
-git clone https://github.com/imgios/RaM-wiki.git
-cd RaM-wiki
+$ git clone https://github.com/imgios/RaM-wiki.git
+$ cd RaM-wiki
 ```
 2. Create a new virtualenv and activate it:
-```
-python3 -m venv venv
-source venv/bin/activate
+```bash
+$ python3 -m venv venv
+$ source venv/bin/activate
 ```
 3. Install dependencies:
-```
-pip3 install -r requirements.txt
+```bash
+$ pip3 install -r requirements.txt
 ```
 4. Create a new Neo4j database with `neo4j` as username and `ramwiki` as password
 5. Run the script `createdb.py` in order to populate the database:
-```
-python3 ramwiki/createdb.py
+```bash
+$ python3 ramwiki/createdb.py
 ```
 6. Run the application:
-```
-python3 run.py
+```bash
+$ python3 run.py
 ```
 
 ## Built With
