@@ -15,7 +15,7 @@ def getNodesCount(dbGraph):
     try:
         nodesCount = len(dbGraph.nodes)
     except NameError:
-        logger.warning("dbGrapg not initialized: cannot retrieve nodes count.")
+        logger.warning("dbGraph not initialized: cannot retrieve nodes count.")
     else:
         return nodesCount
 
@@ -23,7 +23,7 @@ def getRelationshipsCount(dbGraph):
     try:
         relsCount = len(dbGraph.relationships)
     except NameError:
-        logger.warning("dbGraph not initialized: cannot retrieve nodes count.")
+        logger.warning("dbGraph not initialized: cannot retrieve relationships count.")
     else:
         return relsCount
 
