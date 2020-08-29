@@ -1,25 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <section class="section">
-        <div class="columns">
-            <div class="column is-half is-offset-one-quarter">
-                <article class="message is-danger">
-                    <div class="message-body">
-                        <p class="pb-4 has-text-justify">
-                            Ruh-roh, something just isn't right... Time to paw through your logs and get down and dirty in your stack-trace;)
-                        </p>
-                        <p class="has-text-right">
-                            <a class="button is-small is-dark" href="{{ url_for('status') }}">
-                                <span class="icon is-small">
-                                    <i class="fas fa-hard-hat"></i>
-                                </span>
-                                <span>Go back in the safe area!</span>
-                            </a>
-                        </p>
-                    </div>
-                </article>
-            </div>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <article class="message is-danger">
+                <div class="message-body">
+                    <p class="pb-4 has-text-justify">
+                        Ruh-roh, something just isn't right... Time to paw through your logs and get down and dirty in your stack-trace;)
+                    </p>
+                    <p class="has-text-right">
+                        <a class="button is-small is-dark" href="{{ url_for('status') }}">
+                            <span class="icon is-small">
+                                <i class="fas fa-hard-hat"></i>
+                            </span>
+                            <span>Go back in the safe area!</span>
+                        </a>
+                    </p>
+                </div>
+            </article>
         </div>
-    </section>
+    </div>
 {% endblock %}
