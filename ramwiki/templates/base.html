@@ -17,7 +17,7 @@
     </head>
     <body>
 		<!-- Hero -->
-		<section class="hero is-link">
+		<section class="hero is-dark">
 			<div class="hero-body">
 				<div class="container has-text-centered">
 					<h1 class="title">
@@ -29,50 +29,34 @@
 				</div>
 			</div>
 		</section>
-        <!-- Navbar -->
-		<nav class="navbar is-link" role="navigation" aria-label="main navigation">
-			<div class="navbar-brand">
-				<!-- <a class="navbar-item" href="https://bulma.io">
-					<img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-				</a> -->
-
-				<a role="button" class="navbar-burger burger" onclick="document.querySelector('.navbar-burger').classList.toggle('is-active');document.querySelector('.navbar-menu').classList.toggle('is-active');" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-				</a>
-			</div>
-
-			<div id="navbarBasicExample" class="navbar-menu">
-				<div class="navbar-start">
-					<a class="navbar-item" href="/characters">
-						<i class="far fa-id-badge pr-2 has-text-primary"></i> Characters
-					</a>
-					<a class="navbar-item" href="/episodes">
-						<i class="fas fa-tv pr-2 has-text-warning"></i> Episodes
-					</a>
-					<a class="navbar-item" href="/locations">
-						<i class="fas fa-globe-europe pr-2 has-text-danger"></i> Locations
-					</a>
+		<section class="section">
+			<div class="columns">
+				<div class="column is-one-fifths">
+					<!-- Side Menu -->
+					<aside class="menu">
+						<p class="menu-label">
+						General
+						</p>
+						<ul class="menu-list">
+							<li><a href="{{ url_for('status') }}">Status</a></li>
+						</ul>
+						<p class="menu-label">
+							Wiki
+						</p>
+						<ul class="menu-list">
+							<li><a>Characters</a></li>
+							<li><a>Episodes</a></li>
+							<li><a>Locations</a></li>
+						</ul>
+					</aside>
 				</div>
-
-				<div class="navbar-end">
-					<div class="navbar-item">
-						<div class="buttons">
-							<a class="button is-dark is-small" href="https://github.com/imgios/RaM-wiki">
-								<span class="icon is-small">
-									<i class="fab fa-github"></i>
-								</span>
-								<span>Check the project on Github!</span>
-							</a>
-						</div>
-					</div>
+				<div class="column is-four-fifths">
+					<!-- Content -->
+					{% block content %}
+					{% endblock %}
 				</div>
 			</div>
-		</nav>
-        <!-- Content -->
-		{% block content %}
-		{% endblock %}
+		</section>
 		<!-- Footer -->
 		<footer class="footer">
 			<div class="content has-text-centered">
