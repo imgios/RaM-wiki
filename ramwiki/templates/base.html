@@ -38,15 +38,43 @@
 						General
 						</p>
 						<ul class="menu-list">
-							<li><a href="{{ url_for('status') }}">Status</a></li>
+							<li>
+								<a href="{{ url_for('status') }}">
+									<span class="icon">
+										<i class="fas fa-info"></i>
+									</span>
+									Status
+								</a>
+							</li>
 						</ul>
 						<p class="menu-label">
 							Wiki
 						</p>
 						<ul class="menu-list">
-							<li><a>Characters</a></li>
-							<li><a>Episodes</a></li>
-							<li><a>Locations</a></li>
+							<li>
+								<a href="{{ url_for('characters.index') }}">
+									<span class="icon">
+										<i class="far fa-id-badge"></i>
+									</span>
+									Characters
+								</a>
+							</li>
+							<li>
+								<a>
+									<span class="icon">
+										<i class="fas fa-tv"></i>
+									</span>
+									Episodes
+								</a>
+							</li>
+							<li>
+								<a>
+									<span class="icon">
+										<i class="fas fa-globe-europe"></i>
+									</span>
+									Locations
+								</a>
+							</li>
 						</ul>
 					</aside>
 				</div>
