@@ -1,7 +1,7 @@
 import os
 from ramwiki.utilities import getConnection, getNodesCount, getRelationshipsCount, getEntityCount
 from flask import Flask, render_template
-from .blueprints.characters import characters
+from .characters import characters
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
