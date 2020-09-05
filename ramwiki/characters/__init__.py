@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 from .manager import CharacterManager
 from py2neo import Node
+from ..utilities import getEntityCount
 
 characters = Blueprint(
     'characters',
@@ -23,5 +24,5 @@ def index():
         })
 
     return render_template('characters/index.html',
-        number_of_characters="1", # testing purposed, must be changed
+        number_of_characters=getEntityCount(characterManager.graph, 'c'), # testing purposed, must be changed
         characters = characters) # testing purposed, must be changed
