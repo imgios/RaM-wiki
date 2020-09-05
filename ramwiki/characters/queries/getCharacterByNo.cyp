@@ -1,3 +1,3 @@
 MATCH (c:Character)
-WHERE c.no = {number}
+WHERE c.no = $character_number
 RETURN c
