@@ -12,9 +12,9 @@ characters = Blueprint(
 @characters.route('/')
 def index():
     characterManager = CharacterManager()
-    characters = []
+    characters = [] # Characters retrieved
     for x in range(1, 4):
-        result = characterManager.getByNumber(x)
+        result = characterManager.getByNumber(x) # Retrieve character by id x from database
         character = result['data'][0]['c'] # Node result
         characters.append({
             "image": character['image'],
@@ -24,5 +24,5 @@ def index():
         })
 
     return render_template('characters/index.html',
-        number_of_characters=getEntityCount(characterManager.graph, 'c'), # testing purposed, must be changed
-        characters = characters) # testing purposed, must be changed
+        number_of_characters = getEntityCount(characterManager.graph, 'c'),
+        characters = characters)
