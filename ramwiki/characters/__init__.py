@@ -1,4 +1,6 @@
 from flask import Blueprint, render_template
+from .manager import CharacterManager
+from py2neo import Node
 
 characters = Blueprint(
     'characters',
@@ -8,6 +10,18 @@ characters = Blueprint(
 
 @characters.route('/')
 def index():
+    characterManager = CharacterManager()
+    characters = []
+    for x in range(1, 4):
+        result = characterManager.getByNumber(x)
+        character = result['data'][0]['c'] # Node result
+        characters.append({
+            "image": character['image'],
+            "name": character['name'],
+            "status": character['status'],
+            "species": character['species']
+        })
+
     return render_template('characters/index.html',
         number_of_characters="1", # testing purposed, must be changed
-        characters = [{"name":"Test", "status":"alive", "species":"ai"},{"name":"Test2", "status":"alive", "species":"ai"},{"name":"Test3", "status":"alive", "species":"ai"}]) # testing purposed, must be changed
+        characters = characters) # testing purposed, must be changed
