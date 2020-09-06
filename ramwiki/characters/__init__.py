@@ -2,6 +2,7 @@ from flask import Blueprint, render_template
 from .manager import CharacterManager
 from py2neo import Node
 from ..utilities import getEntityCount
+import random
 
 characters = Blueprint(
     'characters',
@@ -12,9 +13,12 @@ characters = Blueprint(
 @characters.route('/')
 def index():
     characterManager = CharacterManager()
+    totalCharacters = getEntityCount(characterManager.graph, 'c') # Number of Characters nodes in the database
     characters = [] # Characters retrieved
-    for x in range(1, 4):
-        result = characterManager.getByNumber(x) # Retrieve character by id x from database
+    i = 0
+    while i < 3:
+        characterNumber = random.randint(1, totalCharacters)
+        result = characterManager.getByNumber(characterNumber) # Retrieve character by random id from database
         character = result['data'][0]['c'] # Node result
         characters.append({
             "image": character['image'],
@@ -22,7 +26,8 @@ def index():
             "status": character['status'],
             "species": character['species']
         })
+        i+=1
 
     return render_template('characters/index.html',
-        number_of_characters = getEntityCount(characterManager.graph, 'c'),
+        number_of_characters = totalCharacters,
         characters = characters)
