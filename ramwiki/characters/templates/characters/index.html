@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+	Characters
+{% endblock %}
+
 {% block content %}
 	<div class="container">
 		<div class="notification level">
@@ -38,9 +42,17 @@
 			<div class="media-content">
 				<div class="content">
 					<p>
-						<strong>{{ item['name'] }}</strong> <small>{{ item['status'] }}</small> <small>{{ item['species'] }}</small>
+						<strong>{{ item['name'] }}</strong>
+						{% if item['status'] == 'Alive'%}
+							<span class="tag is-success">{{ item['status'] }}</span>
+						{% elif item['status'] == 'Dead' %}
+							<span class="tag is-danger">{{ item['status'] }}</span>
+						{% else %}
+							<span class="tag is-warning">{{ item['status'] }}</span>
+						{% endif %}
+						<span class="tag is-light">{{ item['species'] }}</span>
 						<br>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+						Character info.
 					</p>
 				</div>
 			</div>
