@@ -57,7 +57,10 @@
 {% block javascript %}
     <script>
         $(document).ready( function () {
-            $('#search_results').DataTable();
+            $('#search_results').DataTable({
+                'searching': false,
+                'lengthChange': false
+            });
         } );
     </script>
 {% endblock %}
