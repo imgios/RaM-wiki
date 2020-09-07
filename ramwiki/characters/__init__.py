@@ -22,6 +22,7 @@ def index():
         result = characterManager.getByNumber(characterNumber) # Retrieve character by random id from database
         character = result['data'][0]['c'] # Node result
         characters.append({
+            "number": character['no'],
             "image": character['image'],
             "name": character['name'],
             "status": character['status'],
