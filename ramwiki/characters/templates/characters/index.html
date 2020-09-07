@@ -48,7 +48,7 @@
 						{% elif item['status'] == 'Dead' %}
 							<span class="tag is-danger">{{ item['status'] }}</span>
 						{% else %}
-							<span class="tag is-warning">{{ item['status'] }}</span>
+							<span class="tag is-warning">{{ item['status'].capitalize() }}</span>
 						{% endif %}
 						<span class="tag is-light">{{ item['species'] }}</span>
 						<br>
