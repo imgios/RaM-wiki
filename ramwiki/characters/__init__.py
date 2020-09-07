@@ -67,6 +67,7 @@ def searchCharacters():
                     'name': character['c']['name'],
                     'gender': character['c']['gender'],
                     'species': character['c']['species'],
+                    'origin': character['c']['origin'],
                     'status': character['c']['status']
                 })
 
