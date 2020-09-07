@@ -15,8 +15,8 @@ def index():
     characterManager = CharacterManager()
     totalCharacters = getEntityCount(characterManager.graph, 'c') # Number of Characters nodes in the database
     characters = [] # Characters retrieved
-    i = 0
     # Retrieving characters from the database with a random value as character number
+    i = 0
     while i < 3:
         characterNumber = random.randint(1, totalCharacters)
         result = characterManager.getByNumber(characterNumber) # Retrieve character by random id from database
