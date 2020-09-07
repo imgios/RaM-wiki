@@ -25,7 +25,9 @@ def index():
             "image": character['image'],
             "name": character['name'],
             "status": character['status'],
-            "species": character['species']
+            "species": character['species'],
+            "location": character['location'],
+            "actedIn": len(character['episode'])
         })
         i+=1
 
