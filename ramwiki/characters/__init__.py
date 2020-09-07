@@ -57,16 +57,26 @@ def searchCharacters():
     if 'name' in request.args:
         characterManager = CharacterManager()
         characterName = request.args.get('name')
-        results = characterManager.getByName(characterName)
-        if len(results) > 0:
-            res = jsonify({'status': 'DONE', 'content': results})
-            res.status_code = 200
-            return res
+        data = characterManager.getByName(characterName)
+        if len(data) > 0:
+            characters = [i for i in data['data']]
+            results = []
+            for character in characters:
+                results.append({
+                    'number': character['c']['no'],
+                    'name': character['c']['name'],
+                    'gender': character['c']['gender'],
+                    'species': character['c']['species'],
+                    'status': character['c']['status']
+                })
+
+            return render_template('characters/search.html',
+            results = results)
         else:
-            res = jsonify({'status': 'ERROR', 'content': 'No character found.'})
-            res.status_code = 200
-            return res
+            results = None
+            return render_template('characters/search.html',
+            results = results)
     else:
-        res = jsonify({'status': 'ERROR', 'content': 'No name provided.'})
-        res.status_code = 200
-        return res
+        results = None
+        return render_template('characters/search.html',
+        results = results)

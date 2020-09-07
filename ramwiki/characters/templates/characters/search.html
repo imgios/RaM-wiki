@@ -35,13 +35,14 @@
                     </thead>
                     <tbody>
                         {% for character in results %}
-                        <tr>
-                            <td>{{ character['number'] }}</td>
-                            <td>{{ character['name'] }}</td>
-                            <td>{{ character['gender'] }}</td>
-                            <td>{{ character['species'] }}</td>
-                            <td>{{ character['status'] }}</td>
-                        </tr>
+                            <tr>
+                                <td>{{ character['number'] }}</td>
+                                <td>{{ character['name'] }}</td>
+                                <td>{{ character['gender'] }}</td>
+                                <td>{{ character['species'] }}</td>
+                                <td>{{ character['status'] }}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             {% else %}
