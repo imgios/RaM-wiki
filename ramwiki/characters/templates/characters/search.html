@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Character Info
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="notification level">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li>
+                        <span class="icon">
+                          <i class="far fa-id-badge"></i>
+                        </span>
+                        <a href="{{ url_for('characters.index') }}">Characters</a>
+                    </li>
+                    <li class="is-active"><a href="#" aria-current="page">Search</a></li>
+                </ul>
+            </nav>
+		</div>
+    </div>
+    <div class="container pt-5">
+        <div class="box">
+            {% if results %}
+                <table id="search_results" class="display">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Species</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for character in results %}
+                        <tr>
+                            <td>{{ character['number'] }}</td>
+                            <td>{{ character['name'] }}</td>
+                            <td>{{ character['gender'] }}</td>
+                            <td>{{ character['species'] }}</td>
+                            <td>{{ character['status'] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            {% else %}
+                Sorry, no character found with this name.
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready( function () {
+            $('#search_results').DataTable();
+        } );
+    </script>
+{% endblock %}
