@@ -78,7 +78,13 @@
                                 </tr>
                                 <tr>
                                     <th>Acted in:</th>
-                                    <td>{{ character['episodes'] }}</td>
+                                    <td>
+                                        <ul>
+                                            {% for x in character['episode'] %}
+                                                <li style="display:inline;">- Episode {{ x }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
