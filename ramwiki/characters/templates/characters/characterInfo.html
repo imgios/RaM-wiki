@@ -9,70 +9,85 @@
 		<div class="notification level">
 			<nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                    <li><a href="{{ url_for('characters.index') }}">Characters</a></li>
+                    <li>
+                        <span class="icon">
+                          <i class="far fa-id-badge"></i>
+                        </span>
+                        <a href="{{ url_for('characters.index') }}">Characters</a>
+                    </li>
                     <li class="is-active"><a href="#" aria-current="page">{{ character['name'] }}</a></li>
                 </ul>
             </nav>
 		</div>
     </div>
-    <div class="container">
+    <div class="container pt-5">
         <div class="box">
-            <p class="has-text-centered">
-                <figure class="image is-128x128">
-                    <img src="{{ character['image'] }}" class="is-rounded">
-                </figure>
-            </p>
-            <p class="is-size-4">{{ character['name'] }}</p>
-            <div class="table-container">
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <th>Status:</th>
-                            {% if character['status'] == 'Alive'%}
-							    <td><span class="tag is-success">{{ character['status'] }}</span></td>
-						    {% elif character['status'] == 'Dead' %}
-                                <td><span class="tag is-danger">{{ character['status'] }}</span></td>
-						    {% else %}
-                                <td><span class="tag is-warning">{{ character['status'] }}</span></td>
-						    {% endif %}
-                        </tr>
-                        <tr>
-                            <th>Species:</th>
-                            <td>{{ character['status'] }}</td>
-                        </tr>
-                        <tr>
-                            <th>Type:</th>
-                            <td>{{ character['type'] }}</td>
-                        </tr>
-                        <tr>
-                            <th>Gender:</th>
-                            <td>
-                                <span class="icon">
-                                    {% if character['gender'] == 'Male' %}
-                                        <i class="fas fa-mars" style="color:cornflowerblue;"></i>
-                                    {% elif character['gender'] == 'Female' %}
-                                        <i class="fas fa-venus" style="color: palevioletred;"></i>
+            {% if character %}
+            <div class="columns is-centered">
+                <div class="column is-3 has-text-centered">
+                    <figure class="image is-128x128" style="margin-left: auto;margin-right: auto;">
+                        <img src="{{ character['image'] }}" class="is-rounded">
+                    </figure>
+                    <p class="is-size-3 pt-3">{{ character['name'] }}</p>
+                </div>
+                <div class="column">
+                    <div class="table-container">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Status:</th>
+                                    {% if character['status'] == 'Alive'%}
+                                        <td><span class="tag is-success">{{ character['status'] }}</span></td>
+                                    {% elif character['status'] == 'Dead' %}
+                                        <td><span class="tag is-danger">{{ character['status'] }}</span></td>
                                     {% else %}
-                                        <i class="fas fa-question is-warning"></i>
+                                        <td><span class="tag is-warning">{{ character['status'] }}</span></td>
                                     {% endif %}
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Origin:</th>
-                            <td>{{ character['origin'] }}</td>
-                        </tr>
-                        <tr>
-                            <th>Last known location:</th>
-                            <td>{{ character['location'] }}</td>
-                        </tr>
-                        <tr>
-                            <th>Acted in:</th>
-                            <td>{{ character['episodes'] }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                                </tr>
+                                <tr>
+                                    <th>Species:</th>
+                                    <td>{{ character['species'] }}</td>
+                                </tr>
+                                {% if character['type'] != "" %}
+                                <tr>
+                                    <th>Type:</th>
+                                    <td>{{ character['type'] }}</td>
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    <th>Gender:</th>
+                                    <td>
+                                        <span class="icon">
+                                            {% if character['gender'] == 'Male' %}
+                                                <i class="fas fa-mars" style="color:cornflowerblue;"></i>
+                                            {% elif character['gender'] == 'Female' %}
+                                                <i class="fas fa-venus" style="color: palevioletred;"></i>
+                                            {% else %}
+                                                <i class="fas fa-question is-warning"></i>
+                                            {% endif %}
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Origin:</th>
+                                    <td>{{ character['origin'] }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Last known location:</th>
+                                    <td>{{ character['location'] }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Acted in:</th>
+                                    <td>{{ character['episodes'] }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+            {% else %}
+            <p>Sorry, character not found!</p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
