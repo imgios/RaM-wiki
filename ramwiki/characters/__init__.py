@@ -34,3 +34,15 @@ def index():
     return render_template('characters/index.html',
         number_of_characters = totalCharacters,
         characters = characters)
+
+@characters.route('/<int:characterNumber>')
+def characterInfo(characterNumber):
+    characterManager = CharacterManager()
+    result = characterManager.getByNumber(characterNumber)['data']
+    if len(result) > 0:
+        character = result[0]['c'] # Character found
+    else:
+        character = None # Character not found
+    
+    return render_template('characters/characterInfo.html',
+    character = character)
