@@ -40,6 +40,7 @@ def index():
 
 @characters.route('/<int:characterNumber>')
 def characterInfo(characterNumber):
+    """Character page that shows in-depth details."""
     characterManager = CharacterManager()
     result = characterManager.getByNumber(characterNumber)['data']
     if len(result) > 0:
