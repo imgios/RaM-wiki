@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, jsonify
 from .manager import CharacterManager
 from py2neo import Node
 from ..utilities import getEntityCount
@@ -50,3 +50,23 @@ def characterInfo(characterNumber):
     
     return render_template('characters/characterInfo.html',
     character = character)
+
+@characters.route('/search')
+def searchCharacters():
+    """Character search page that shows results based on the name given."""
+    if 'name' in request.args:
+        characterManager = CharacterManager()
+        characterName = request.args.get('name')
+        results = characterManager.getByName(characterName)
+        if len(results) > 0:
+            res = jsonify({'status': 'DONE', 'content': results})
+            res.status_code = 200
+            return res
+        else:
+            res = jsonify({'status': 'ERROR', 'content': 'No character found.'})
+            res.status_code = 200
+            return res
+    else:
+        res = jsonify({'status': 'ERROR', 'content': 'No name provided.'})
+        res.status_code = 200
+        return res
