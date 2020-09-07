@@ -12,6 +12,8 @@ characters = Blueprint(
 
 @characters.route('/')
 def index():
+    """Character category index that shows three random character from the database,
+    the number of characters stored and a search bar."""
     characterManager = CharacterManager()
     totalCharacters = getEntityCount(characterManager.graph, 'c') # Number of Characters nodes in the database
     characters = [] # Characters retrieved
