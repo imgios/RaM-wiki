@@ -45,7 +45,7 @@
                                 <td>{{ character['origin'] }}</td>
                                 <td>{{ character['status'] }}</td>
                                 <td>
-                                    <a href="./{{ character['number'] }}" class="button is-dark is-small">Details</a>
+                                    <a href="{{ url_for('characters.characterInfo', characterNumber = character['number']) }}" class="button is-dark is-small">Details</a>
                                 </td>
                             </tr>
                         {% endfor %}
