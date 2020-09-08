@@ -15,5 +15,10 @@ class CharacterManager:
         cursor = self.graph.run(query, character_number = characterNumber)
         return {"data": cursor.data()}
 
+    def searchByName(self, characterName):
+        query = read_query_from_file('ramwiki/characters/queries/searchCharactersByName.cyp')
+        cursor = self.graph.run(query, search_name = characterName)
+        return {"data": cursor.data()}
+
     #TO-DO: Add more function in order to retrive different data
 
