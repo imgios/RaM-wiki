@@ -31,7 +31,7 @@ $ source venv/bin/activate
 ```bash
 $ pip3 install -r requirements.txt
 ```
-4. Create a new Neo4j database with `neo4j` as username and `ramwiki` as password
+4. Create a new Neo4j database and edit database username and password in `utilities.py`
 5. Run the script `createdb.py` in order to populate the database:
 ```bash
 $ python3 ramwiki/createdb.py
