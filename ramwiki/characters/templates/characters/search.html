@@ -32,6 +32,7 @@
                             <th>Species</th>
                             <th>Origin</th>
                             <th>Status</th>
+                            <th>Details</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +44,9 @@
                                 <td>{{ character['species'] }}</td>
                                 <td>{{ character['origin'] }}</td>
                                 <td>{{ character['status'] }}</td>
+                                <td>
+                                    <a href="./{{ character['number'] }}" class="button is-dark is-small">Details</a>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
