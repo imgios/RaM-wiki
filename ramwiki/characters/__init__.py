@@ -57,7 +57,6 @@ def searchCharacters():
     if 'name' in request.args:
         characterManager = CharacterManager()
         characterName = request.args.get('name')
-        #data = characterManager.getByName(characterName)
         data = characterManager.searchByName(characterName)
         print(data)
         if len(data) > 0:
