@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Episodes
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="notification level">
+			<div class="level-left">
+				<span class="title">Episodes</span>
+			</div>
+			<div class="level-right">
+				<form method="get">
+					<div class="field has-addons">
+						<div class="control has-icons-left">
+							<input class="input" type="text" name="name" placeholder="Episode abbreviation">
+							<span class="icon is-small is-left">
+								<i class="fas fa-tv"></i>
+							</span>
+						</div>
+						<div class="control">
+							<input class="button is-primary" type="submit" value="Search">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<p class="py-5">
+			Rick and Morty Wiki actually has stored {{ number_of_episodes }} episodes! Type the abbreviation in the search bar (e.g., S01E01) or select one from below:
+		</p>
+		<!-- Episode Content -->
+	</div>
+{% endblock %}
