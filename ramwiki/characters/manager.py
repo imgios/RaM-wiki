@@ -27,5 +27,3 @@ class CharacterManager:
         cursor = self.graph.run(query, character_number = characterNumber)
         return {"data": cursor.data()}
 
-    #TO-DO: Add more function in order to retrive different data
-
