@@ -11,3 +11,8 @@ class EpisodeManager:
         query = read_query_from_file(QUERY_PATH + 'getBySeason.cyp')
         cursor = self.graph.run(query, season_number = seasonNumber)
         return {"data": cursor.data()}
+
+    def getByEpisode(self, episode):
+        query = read_query_from_file(QUERY_PATH + 'getByEpisode.cyp')
+        cursor = self.graph.run(query, episode = episode)
+        return {"data": cursor.data()}
