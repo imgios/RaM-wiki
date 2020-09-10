@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, jsonify
+from flask import Blueprint, render_template, request
 from .manager import CharacterManager
 from py2neo import Node
 from ..utilities import getEntityCount
