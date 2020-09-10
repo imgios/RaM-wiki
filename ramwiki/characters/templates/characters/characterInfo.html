@@ -91,9 +91,42 @@
                     </div>
                 </div>
             </div>
+            {% if actedIn_stats %}
+            <p class="title has-text-centered">Seasons stats</p>
+            <div class="columns is-vcentered">
+                <div class="column has-text-centered">
+                    <p class="is-size-1">📺</p>
+                    <p class="heading">Episodes in which it appears</p>
+                    <p class="title">{{ actedIn_stats['1']|length + actedIn_stats['2']|length + actedIn_stats['3']|length + actedIn_stats['4']|length }}</p>
+                </div>
+                <div class="column has-text-centered">
+                    <!-- Plotly Pie Chart -->
+                    <div id="seasonPieChart" class="has-xmargin-auto"></div>
+                </div>
+            </div>
+            {% endif %}
             {% else %}
             <p>Sorry, character not found!</p>
             {% endif %}
         </div>
     </div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    var data = [{
+        sort: 'false',
+        values: [{{ actedIn_stats['1']|length }}, {{ actedIn_stats['2']|length }}, {{ actedIn_stats['3']|length }}, {{ actedIn_stats['4']|length }}],
+        labels: ['Season 1', 'Season 2', 'Season 3', 'Season 4'],
+        type: 'pie',
+    }];
+
+    var layout = {
+        font: {size: 13}
+    };
+
+    var config = {responsive: true}
+
+    Plotly.newPlot('seasonPieChart', data, layout, config);
+</script>
 {% endblock %}

@@ -45,11 +45,41 @@ def characterInfo(characterNumber):
     result = characterManager.getByNumber(characterNumber)['data']
     if len(result) > 0:
         character = result[0]['c'] # Character found
+        actingStats = getActingStats(characterNumber)
     else:
         character = None # Character not found
+        actingStats = None # Stats not retrieved
     
     return render_template('characters/characterInfo.html',
-    character = character)
+    character = character,
+    actedIn_stats = actingStats)
+
+def getActingStats(characterNumber):
+    """Retrieves and format character acting stats, tracking the episode in which they appear for every season."""
+    characterManager = CharacterManager()
+    result = characterManager.getCharacterActingStats(characterNumber) if isinstance(characterNumber, int) else None
+    if result and len(result) > 0:
+        season = {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+        }
+        for i in range(0, len(result["data"])):
+            episode = result["data"][i]["e.episode"]
+            if 'S01' in episode:
+                season["1"].append(episode)
+            elif 'S02' in episode:
+                season["2"].append(episode)
+            elif 'S03' in episode:
+                season["3"].append(episode)
+            elif 'S04' in episode:
+                season["4"].append(episode)
+        
+        return season
+    else:
+        return None
+
 
 @characters.route('/search')
 def searchCharacters():
