@@ -26,30 +26,38 @@
 				</form>
 			</div>
 		</div>
-	</div>
+    </div>
+    <!-- Episode Content -->
 	<div class="container">
-		<p class="py-5">
-			Rick and Morty Wiki actually has stored {{ number_of_episodes }} episodes! Type the abbreviation in the search bar (e.g., S01E01) or select one from below:
-		</p>
-        <!-- Episode Content -->
-        <div class="level">
+        <div class="level pt-5">
             <div class="level-item has-text-centered">
-                <p class="heading">Season 1</p>
-                <p class="title">{{ season1_episodes }}</p>
+                <div>
+                    <p class="heading">Season 1</p>
+                    <p class="title">{{ season_episodes_number["1"] }}</p>
+                </div>
             </div>
             <div class="level-item has-text-centered">
-                <p class="heading">Season 2</p>
-                <p class="title">{{ season2_episodes }}</p>
+                <div>
+                    <p class="heading">Season 2</p>
+                    <p class="title">{{ season_episodes_number["2"] }}</p>
+                </div>
             </div>
             <div class="level-item has-text-centered">
-                <p class="heading">Season 3</p>
-                <p class="title">{{ season3_episodes }}</p>
+                <div>
+                    <p class="heading">Season 3</p>
+                    <p class="title">{{ season_episodes_number["3"] }}</p>
+                </div>
             </div>
             <div class="level-item has-text-centered">
-                <p class="heading">Season 4</p>
-                <p class="title">{{ season4_episodes }}</p>
+                <div>
+                    <p class="heading">Season 4</p>
+                    <p class="title">{{ season_episodes_number["4"] }}</p>
+                </div>
             </div>
         </div>
+		<p class="pb-5">
+			Rick and Morty Wiki actually has stored {{ season_episodes_number["1"] + season_episodes_number["2"] + season_episodes_number["3"] + season_episodes_number["4"] }} episodes! Type the abbreviation in the search bar (e.g., S01E01) or select one from below:
+		</p>
         <div class="columns is-vcentered">
             <div class="column">
                 <p>
