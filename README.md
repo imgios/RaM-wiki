@@ -36,8 +36,7 @@ $ pip3 install -r requirements.txt
 def getConnection():
     dbUsername = 'neo4j' # replace neo4j with your database username
     dbPassword = 'ramwiki' # replace ramwiki with your database password
-    dbUrl = os.environ.get('ramwikiDBUrl', 'http://localhost:7474/db/data/')
-    return Graph(dbUrl, auth = (dbUsername, dbPassword))
+    ... 
 ```
 5. Run the script `createdb.py` in order to populate the database:
 ```bash
