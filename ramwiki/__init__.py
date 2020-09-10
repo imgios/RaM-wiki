@@ -2,12 +2,14 @@ import os
 from ramwiki.utilities import getConnection, getNodesCount, getRelationshipsCount, getEntityCount
 from flask import Flask, render_template, redirect, url_for
 from .characters import characters
+from .episodes import episodes
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 # TO-DO: register blueprints
 app.register_blueprint(characters, url_prefix='/characters')
+app.register_blueprint(episodes, url_prefix='/episodes')
 
 # (?) TEMP: App index redirect to the status page
 @app.route('/')
