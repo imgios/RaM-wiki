@@ -7,8 +7,8 @@ episodes = Blueprint (
     template_folder='templates'
 )
 
-@episodes.route('/')
 @episodes.route('/index')
+@episodes.route('/')
 def index():
     episodeManager = EpisodeManager()
     season = {}
