@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from .manager import EpisodeManager
+from py2neo import Node
 
 episodes = Blueprint (
     'episodes',
@@ -18,3 +19,23 @@ def index():
     
     return render_template('episodes/index.html',
         season_episodes_number = season)
+
+@episodes.route('/search')
+def searchEpisode():
+    """Episode search page that shows results based on the season given."""
+    if 'season' in request.args:
+        episodeManager = EpisodeManager()
+        seasonNumber = request.args.get('season')
+        data = episodeManager.getBySeason(seasonNumber)
+        if len(data) > 0:
+            episodes = [i for i in data['data']]
+            results = []
+            for episode in episodes:
+                results.append({
+                    'number': episode['e']['no'],
+                    'episode': episode['e']['episode'],
+                    'name': episode['e']['name'],
+                    'air_date': episode['e']['air_date']
+                })
+        
+        return render_template('episodes/search.html', results = results)

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Episodes
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="notification level">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li>
+                        <span class="icon">
+                          <i class="far fa-id-badge"></i>
+                        </span>
+                        <a href="{{ url_for('episodes.index') }}">Episodes</a>
+                    </li>
+                    <li class="is-active"><a href="#" aria-current="page">Search</a></li>
+                </ul>
+            </nav>
+		</div>
+    </div>
+    <div class="container pt-5">
+        <div class="box">
+            {% if results %}
+                <table id="search_results" class="display">
+                    <thead>
+                        <tr>
+                            <th>Episode</th>
+                            <th>Name</th>
+                            <th>Air Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for episode in results %}
+                            <tr>
+                                <td>{{ episode['episode'] }}</td>
+                                <td>{{ episode['name'] }}</td>
+                                <td>{{ episode['air_date'] }}</td>
+                                <td>
+                                    <!-- TODO: <a href="{{ url_for('episode.episodeInfo', episodeNumber = episode['number']) }}" class="button is-dark is-small">Details</a> -->
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                Sorry, no character found with this name.
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready( function () {
+            $('#search_results').DataTable({
+                'searching': false,
+                'lengthChange': false
+            });
+        } );
+    </script>
+{% endblock %}
