@@ -38,7 +38,7 @@
                                 <td>{{ episode['name'] }}</td>
                                 <td>{{ episode['air_date'] }}</td>
                                 <td>
-                                    <!-- TODO: <a href="{{ url_for('episode.episodeInfo', episodeNumber = episode['number']) }}" class="button is-dark is-small">Details</a> -->
+                                    <a href="{{ url_for('episodes.episodeInfo', episodeParam = episode['episode']) }}" class="button is-dark is-small">Details</a>
                                 </td>
                             </tr>
                         {% endfor %}

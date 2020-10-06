@@ -20,6 +20,19 @@ def index():
     return render_template('episodes/index.html',
         season_episodes_number = season)
 
+@episodes.route('/<string:episodeParam>')
+def episodeInfo(episodeParam):
+    """Character page that shows in-depth details."""
+    episodeManager = EpisodeManager()
+    result = episodeManager.getByEpisode(episodeParam)['data']
+    if len(result) > 0:
+        episode = result[0]['e'] # Character found
+    else:
+        episode = None # Character not found
+    
+    return render_template('episodes/episodeInfo.html',
+    episode = episode)
+
 @episodes.route('/search')
 def searchEpisode():
     """Episode search page that shows results based on the season given."""

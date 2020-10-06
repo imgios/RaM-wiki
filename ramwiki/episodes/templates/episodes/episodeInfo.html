@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Episode Info
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="notification level">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li>
+                        <span class="icon">
+                          <i class="far fa-id-badge"></i>
+                        </span>
+                        <a href="{{ url_for('episodes.index') }}">Episodes</a>
+                    </li>
+                    <li class="is-active"><a href="#" aria-current="page">{{ episode['episode'] }}</a></li>
+                </ul>
+            </nav>
+		</div>
+    </div>
+    <div class="container pt-5">
+        <div class="box">
+            {% if episode %}
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="table-container">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Season:</th>
+                                    <td>{{ episode['episode'] }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Name:</th>
+                                    <td>{{ episode['name'] }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Air Date:</th>
+                                    <td>{{ episode['air_date'] }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Starring:</th>
+                                    <td>
+                                        <ul>
+                                            <!-- TODO: Names instead of ids -->
+                                            {% for x in episode['characters'] %}
+                                                <li style="display:inline;">- Character {{ x }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <p>Sorry, episode not found!</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
