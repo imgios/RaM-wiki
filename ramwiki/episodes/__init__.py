@@ -39,19 +39,25 @@ def episodeInfo(episodeParam):
 @episodes.route('/search')
 def searchEpisode():
     """Episode search page that shows results based on the season given."""
-    if 'season' in request.args:
-        episodeManager = EpisodeManager()
-        seasonNumber = request.args.get('season')
-        data = episodeManager.getBySeason(seasonNumber)
-        if len(data) > 0:
-            episodes = [i for i in data['data']]
-            results = []
-            for episode in episodes:
-                results.append({
-                    'number': episode['e']['no'],
-                    'episode': episode['e']['episode'],
-                    'name': episode['e']['name'],
-                    'air_date': episode['e']['air_date']
-                })
-        
-        return render_template('episodes/search.html', results = results)
+    episodeManager = EpisodeManager()
+    data = None
+    results = None
+    if 'abbr' in request.args:
+        abbr = request.args.get('abbr')
+        data = episodeManager.getByEpisode(abbr)
+    elif 'season' in request.args:
+        season = request.args.get('season')
+        data = episodeManager.getBySeason(season)
+    
+    if data and len(data) > 0:
+        episodes = [i for i in data['data']]
+        results = []
+        for episode in episodes:
+            results.append({
+                'number': episode['e']['no'],
+                'episode': episode['e']['episode'],
+                'name': episode['e']['name'],
+                'air_date': episode['e']['air_date']
+            })
+    
+    return render_template('episodes/search.html', results = results)
