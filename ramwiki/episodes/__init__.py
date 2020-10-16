@@ -26,9 +26,9 @@ def episodeInfo(episodeParam):
     episodeManager = EpisodeManager()
     result = episodeManager.getByEpisode(episodeParam)['data']
     if len(result) > 0:
-        episode = result[0]['e'] # Character found
+        episode = result[0]['e'] # Episode found
     else:
-        episode = None # Character not found
+        episode = None # Episode not found
     
     return render_template('episodes/episodeInfo.html',
     episode = episode)
