@@ -55,15 +55,15 @@
                 </div>
             </div>
         </div>
-		<p class="pb-5">
-			Rick and Morty Wiki actually has stored {{ season_episodes_number["1"] + season_episodes_number["2"] + season_episodes_number["3"] + season_episodes_number["4"] }} episodes! Type the abbreviation in the search bar (e.g., S01E01) or select one from below:
-        </p>
         <div class="notification is-warning is-light">
             <p>
                 💡 Did you know? Each episode, except the first one, ends with a scene after the credits.
                 <span class="is-size-7">(Did somebody say Marvel?)</span>
             </p>
         </div>
+		<p class="pb-5">
+			Rick and Morty Wiki actually has stored {{ season_episodes_number["1"] + season_episodes_number["2"] + season_episodes_number["3"] + season_episodes_number["4"] }} episodes! Type the abbreviation in the search bar (e.g., S01E01) or select one from below:
+        </p>
         <div class="columns is-vcentered">
             <div class="column">
                 <a href="{{ url_for('episodes.searchEpisode', season = 1) }}" class="button is-primary">See all Season 1 episodes</a>
