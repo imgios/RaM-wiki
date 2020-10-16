@@ -72,10 +72,10 @@
 									Episodes
 								</a>
 								<ul>
-									<li><a>Season 1</a></li>
-									<li><a>Season 2</a></li>
-									<li><a>Season 3</a></li>
-									<li><a>Season 4</a></li>
+									<li><a href="{{ url_for('episodes.searchEpisode', season = 1) }}">Season 1</a></li>
+									<li><a href="{{ url_for('episodes.searchEpisode', season = 2) }}">Season 2</a></li>
+									<li><a href="{{ url_for('episodes.searchEpisode', season = 3) }}">Season 3</a></li>
+									<li><a href="{{ url_for('episodes.searchEpisode', season = 4) }}">Season 4</a></li>
 								</ul>
 							</li>
 							<li>
