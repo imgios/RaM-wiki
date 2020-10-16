@@ -11,10 +11,10 @@
 				<span class="title">Episodes</span>
 			</div>
 			<div class="level-right">
-				<form method="get">
+				<form action="/episodes/search" method="get">
 					<div class="field has-addons">
 						<div class="control has-icons-left">
-							<input class="input" type="text" name="name" placeholder="Episode abbreviation">
+							<input class="input" type="text" name="abbr" placeholder="Episode abbreviation">
 							<span class="icon is-small is-left">
 								<i class="fas fa-tv"></i>
 							</span>
@@ -66,16 +66,16 @@
         </div>
         <div class="columns is-vcentered">
             <div class="column">
-                <a class="button is-primary">See all Season 1 episodes</a>
+                <a href="{{ url_for('episodes.searchEpisode', season = 1) }}" class="button is-primary">See all Season 1 episodes</a>
             </div>
             <div class="column">
-                <a class="button is-primary">See all Season 2 episodes</a>
+                <a href="{{ url_for('episodes.searchEpisode', season = 2) }}" class="button is-primary">See all Season 2 episodes</a>
             </div>
             <div class="column">
-                <a class="button is-primary">See all Season 3 episodes</a>
+                <a href="{{ url_for('episodes.searchEpisode', season = 3) }}" class="button is-primary">See all Season 3 episodes</a>
             </div>
             <div class="column">
-                <a class="button is-primary">See all Season 4 episodes</a>
+                <a href="{{ url_for('episodes.searchEpisode', season = 4) }}" class="button is-primary">See all Season 4 episodes</a>
             </div>
         </div>
 	</div>
