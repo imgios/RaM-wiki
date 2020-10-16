@@ -1,2 +1,2 @@
-MATCH (c:Character {no:$character_number})-[:APPEARS_IN]->(e:Episode {episode:$episode_abbr})
+MATCH (c:Character {no:$character_number})-[:APPEARS_IN]->(e:Episode {no:$episode_number})
 RETURN c.name, c.no
