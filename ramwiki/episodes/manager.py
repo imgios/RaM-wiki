@@ -16,3 +16,8 @@ class EpisodeManager:
         query = read_query_from_file(QUERY_PATH + 'getByEpisode.cyp')
         cursor = self.graph.run(query, episode = episode)
         return {"data": cursor.data()}
+
+    def getCharactersInEpisode(self, episodeNumber):
+        query = read_query_from_file(QUERY_PATH + 'getCharactersInEpisode.cyp')
+        cursor = self.graph.run(query, episode_number = episodeNumber)
+        return {"data": cursor.data()}
