@@ -27,6 +27,9 @@ def episodeInfo(episodeParam):
     result = episodeManager.getByEpisode(episodeParam)['data']
     if len(result) > 0:
         episode = result[0]['e'] # Episode found
+        charactersInEpisode = episodeManager.getCharactersInEpisode(episode['no'])['data']
+        if len(charactersInEpisode) > 0:
+            episode['characters'] = charactersInEpisode
     else:
         episode = None # Episode not found
     

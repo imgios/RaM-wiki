@@ -46,7 +46,7 @@
                                         <ul>
                                             <!-- TODO: Names instead of ids -->
                                             {% for x in episode['characters'] %}
-                                                <li style="display:inline;">- Character {{ x }}</li>
+                                                <li style="display:inline;">- {{ x['c.name'] }}</li>
                                             {% endfor %}
                                         </ul>
                                     </td>
