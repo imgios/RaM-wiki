@@ -56,4 +56,4 @@ $ python3 run.py
 
 ## Acknowledgments
 
-Thanks to [rickandmortyapi.com](https://rickandmortyapi.com/), used for the creation of the dataset.
+Thanks to [rickandmortyapi.com](https://rickandmortyapi.com/), used for the dataset creation.
